@@ -38,7 +38,7 @@ function toggleLoading() {
   * Build and html string to display policy information.
   * @example
   * // returns `<ul><li>1</li><li>2</li></ul>`
-  * buildDisplay([1,2]);
+  * buildDisplay({ vehicles: [1,2] });
   * @param {Object} data - Policy information returned from server.
   * @return {String} Returns an html string based on the data passed in the argument.
  */
