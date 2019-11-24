@@ -35,7 +35,7 @@ function toggleLoading() {
 }
 
 /**
-  * Build and html string to display policy information.
+  * Build an html string to display policy information.
   * @example
   * // returns `<ul><li>1</li><li>2</li></ul>`
   * buildDisplay({ vehicles: [1,2] });
