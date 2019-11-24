@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>VINFinder | Trellis Challenge</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<section class="hero is-primary is-medium">
+			<div class="hero-body">
+				<div class="container">
+					<div class="logo-container">
+						<img class="logo" src="https://trellisconnect.com/logo2.png" alt="Trellis">
+					</div>
+					<div class="has-text-centered is-notification">
+						<h2 class="subtitle is-uppercase is-family-primary is-italic is-size-5 is-family-monospace has-text-weight-bold">The fastest way to get insurance information</h2>
+						<button id="openTrellisButton" class="button is-primary is-uppercase has-text-weight-bold is-family-monospace is-size-5">vin lookup</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section">
+			<div class="container">
+				<div class="columns is-mobile">
+					<div class="column is-three-fifths is-offset-one-fifth">
+						<div class="spinner is-hidden">
+							<div class="double-bounce1"></div>
+							<div class="double-bounce2"></div>
+						</div>
+						<div id="displayPolicy" class="is-hidden">
+							<h1 class="title is-size-4 is-family-monospace is-uppercase">Policy Information</h1>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="https://cdn.trellisconnect.com/sdk/v1.1/trellis-connect.js"></script>
+		<script src="index.js"></script>
+	</body>
+</body>
+</html>
