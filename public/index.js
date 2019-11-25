@@ -2,17 +2,21 @@ const btn = document.getElementById('openTrellisButton');
 const handler = TrellisConnect.configure({
   client_id: 'CHALLENGE',
   features: 'nostickystate',
-  onSuccess: async (accountId, metadata) => {
+  onSuccess: async function(accountId, metadata) {
     // 1. set loading icon.
     toggleLoading();
-    // 2. close modal -- not the best way..but..for simplicity in demo purposes.
-    document.getElementsByTagName('iframe')[0].parentElement.style['display'] = 'none';
     // 3. fetch policy data
     const response = await fetch(`http://localhost:3000/account/${accountId}/policies`);
     const data = await response.json();
     // 4. build display, toggleLoading, display html
     const policyContainer = document.querySelector('#displayPolicy');
-    policyContainer.innerHTML += buildDisplay(data);
+    const policyContent = document.getElementById('displayPolicyContent');
+    // if policy content child element classList contains media content, wipe it out.
+    if (policyContent.firstElementChild) {
+      policyContainer.classList.toggle('is-hidden');
+      policyContent.innerHTML = '';
+    }
+    policyContent.innerHTML += buildDisplay(data);
     toggleLoading();
     policyContainer.classList.toggle('is-hidden');
   },
