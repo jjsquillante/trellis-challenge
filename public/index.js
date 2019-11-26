@@ -3,19 +3,18 @@ const handler = TrellisConnect.configure({
   client_id: 'CHALLENGE',
   features: 'nostickystate',
   onSuccess: async function(accountId, metadata) {
+    const policyContainer = document.querySelector('#displayPolicy');
+    const policyContent = document.getElementById('displayPolicyContent');
+    if (policyContent.firstElementChild) {
+      policyContainer.classList.toggle('is-hidden');
+      policyContent.innerHTML = '';
+    }
     // 1. set loading icon.
     toggleLoading();
     // 3. fetch policy data
     const response = await fetch(`http://localhost:3000/account/${accountId}/policies`);
     const data = await response.json();
     // 4. build display, toggleLoading, display html
-    const policyContainer = document.querySelector('#displayPolicy');
-    const policyContent = document.getElementById('displayPolicyContent');
-    // if policy content child element classList contains media content, wipe it out.
-    if (policyContent.firstElementChild) {
-      policyContainer.classList.toggle('is-hidden');
-      policyContent.innerHTML = '';
-    }
     policyContent.innerHTML += buildDisplay(data);
     toggleLoading();
     policyContainer.classList.toggle('is-hidden');
